@@ -19,6 +19,8 @@ app.use(
 app.use(express.json());
 
 // 2. Ruta de verificación de salud (Health Check)
+import userRouter from './routes/user.router';
+
 app.get('/health', (req, res) => {
   res.json({
     status: 'ok',
@@ -27,11 +29,10 @@ app.get('/health', (req, res) => {
   });
 });
 
-// AQUÍ CONECTAREMOS LAS RUTAS EN EL PASO 5:
-// app.use('/api/auth', authRouter);
-// app.use('/api/hours', hoursRouter);
 
 // 3. Middleware de manejo centralizado de errores
+app.use('/api/users', userRouter);
+
 app.use(errorHandler);
 
 // 4. Iniciar servidor

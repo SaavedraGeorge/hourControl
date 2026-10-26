@@ -1,0 +1,28 @@
+### Configuración de Variables Globales
+@hostname = localhost
+@port = 3000
+@baseUrl = http://{{hostname}}:{{port}}/api/users
+
+### 1. Registrar un Nuevo Usuario (POST)
+POST {{baseUrl}}/
+Content-Type: application/json
+
+{
+  "name": "Juan Saavedra",
+  "email": "juan3@example.com",
+  "password": "miPasswordSeguro123"
+}
+
+###
+
+### 2. Iniciar Sesión / Login (POST)
+# @name loginRequest
+POST {{baseUrl}}/login
+Content-Type: application/json
+
+{
+  "email": "juan3@example.com",
+  "password": "miPasswordSeguro123"
+}
+
+###
